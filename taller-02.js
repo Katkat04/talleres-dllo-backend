@@ -19,3 +19,11 @@ function includes(listanum, numero){
     return false
 }includes(listanum, 1)
 
+function sum(listanum) {
+    let total= 0
+    for (let index = 0; index < listanum.length; index++) {
+        total += listanum[index];
+    }
+    return total
+}
+sum(listanum)
