@@ -10,6 +10,12 @@ function findMax(listanum){
 }
 findMax(listanum)
 
-function includes(){
+function includes(listanum, numero){
+    for (let index = 0; index < listanum.length; index++) {
+        if (listanum[index] === numero) {
+            return true
+        }
+    }
+    return false
+}includes(listanum, 1)
 
-}
