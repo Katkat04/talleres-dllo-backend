@@ -22,8 +22,41 @@ function includes(listanum, numero){
 function sum(listanum) {
     let total= 0
     for (let index = 0; index < listanum.length; index++) {
-        total += listanum[index];
+        total += listanum[index]
     }
     return total
 }
 sum(listanum)
+
+function missingNumbers(listanum) {
+    //Encontrar mayor y menor de la lista
+    let nlista = []
+    let eMayor = listanum[0]
+    let eMenor = listanum[0]
+    for (let index = 0; index < listanum.length; index++) { 
+        if(eMenor > listanum[index]){
+            eMenor= listanum[index]
+        }else{
+            if (eMayor < listanum[index]) {
+                eMayor = listanum[index]
+            }
+        }
+    }
+    nlista.push(eMenor, eMayor)
+    //Encontrar missingNumbers  
+    let estamosperdidas=[]
+    for (let index = eMenor; index < eMayor; index++){
+        let encontrado = false 
+        for (let index2 = 0; index2 < listanum.length; index2++) {
+            if(listanum[index2]===index){
+                encontrado= true
+                break
+            }
+        }
+        if(!encontrado){
+            estamosperdidas.push(index)
+        }     
+    }
+    return estamosperdidas
+}
+missingNumbers(listanum)
