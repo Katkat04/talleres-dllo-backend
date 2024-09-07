@@ -35,40 +35,59 @@ function twoSum(listanum, numero){
 
 }
 function conversionRomana(nromano){
+
+    // Numeros romanos
     let i = 1
     let v = 5
     let x = 10
     let l = 50 
     let c = 100
-    let d = 500 //CDXC
+    let d = 500 
     let m = 1000
+
     let contador = 0
     for (let index = 0; index < nromano.length; index++) {
-        let letra = nromano[index].toLowerCase()
-        if(letra=="i"){
-            contador= contador + i
-            if(nromano[index + 1] == "v" || nromano[index + 1] == "x"){
-                contador= contador - 1
+        let letra = nromano[index]
+        if(letra=="I"){
+            if(nromano[index + 1] == "V" || nromano[index + 1] == "X"){
+                contador = contador - 1
+            }else{
+                contador = contador + i
             }
+            continue
         }
-        if(letra == "v"){
+        if(letra == "V"){
             contador = contador + v
+            continue
         }
-        if(letra == "x"){
-            contador = contador + x 
-            if(nromano[index + 1] == "l" || nromano[index + 1] == "c"){
-                contador = nromano[index + 1] - 10
+        if(letra == "X"){
+            if(nromano[index + 1] == "L" || nromano[index + 1] == "C"){
+                contador = contador - 10
+            }else{
+                contador = contador + x
             }
+            continue
         }
-        if(letra == "l"){
-            contador = contador + l 
+        if(letra == "L"){
+            contador = contador + l
+            continue
         }
-        if(letra == "c"){
-            contador = contador + c
-            if(nromano[index + 1] == "d" || nromano[index + 1] == "m"){
-                contador = nromano[index + 1] - 100
+        if(letra == "C"){
+            if(nromano[index + 1] == "D" || nromano[index + 1] == "M"){
+                contador = contador - 100
+            }else{
+                contador = contador + c
             }
+            continue
         }
-        
+        if (letra == "D"){
+            contador = contador + d
+            continue
+        }
+        if (letra == 'M'){
+            contador = contador + m
+            continue
+        }
     }
+    return contador
 }
